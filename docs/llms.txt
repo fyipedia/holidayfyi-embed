@@ -1,0 +1,26 @@
+# HolidayFYI Embed Widget
+
+> Embeddable HolidayFYI widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+
+## Quick Start
+
+Add to any HTML page:
+- Script: <script src="https://cdn.jsdelivr.net/npm/holidayfyi-embed@1/dist/embed.min.js"></script>
+
+## Links
+
+- Main site: https://holidayfyi.com
+- Widget docs: https://widget.holidayfyi.com
+- npm: https://www.npmjs.com/package/holidayfyi-embed
+- GitHub: https://github.com/fyipedia/holidayfyi-embed
+- API: https://holidayfyi.com/developers/
+
+## Utility FYI Widget Family
+
+- [UnitFYI Widget](https://widget.unitfyi.com)
+- [TimeFYI Widget](https://widget.timefyi.com)
+- [NameFYI Widget](https://widget.namefyi.com)
+
+## Part of FYIPedia
+
+Open-source developer tools ecosystem — https://fyipedia.com
