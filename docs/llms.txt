@@ -1,21 +1,53 @@
 # HolidayFYI Embed Widget
 
-> Embeddable HolidayFYI widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+> Holiday dates, 200+ countries. Embeddable widgets for any website. Zero dependencies, Shadow DOM isolation.
 
 ## Quick Start
 
-Add to any HTML page:
-- Script: <script src="https://cdn.jsdelivr.net/npm/holidayfyi-embed@1/dist/embed.min.js"></script>
+```html
+<script src="https://cdn.jsdelivr.net/npm/holidayfyi-embed@1/dist/embed.min.js"></script>
+<div data-holidayfyi="today" data-slug="example"></div>
+```
+
+## Available Widget Types (9)
+
+- entity: `data-holidayfyi="entity"`
+- glossary: `data-holidayfyi="glossary"`
+- guide: `data-holidayfyi="guide"`
+- compare: `data-holidayfyi="compare"`
+- search: `data-holidayfyi="search"`
+- faq: `data-holidayfyi="faq"`
+- today (interactive): `data-holidayfyi="today"`
+- upcoming (interactive): `data-holidayfyi="upcoming"`
+- countdown (interactive): `data-holidayfyi="countdown"`
+
+## Customization
+
+- **Themes**: light, dark, sepia, auto (follows system preference)
+- **Sizes**: compact (280px), default (420px), large (720px)
+- **Styles**: modern, classic
+
+```html
+<div data-holidayfyi="today" data-slug="example"
+     data-theme="auto" data-size="compact" data-style-variant="modern"></div>
+```
+
+## Integration Methods
+
+1. **Script tag** (recommended): `<script src="https://cdn.jsdelivr.net/npm/holidayfyi-embed@1/dist/embed.min.js"></script>`
+2. **iframe**: `https://holidayfyi.com/iframe/entity/{slug}/`
+3. **oEmbed**: `https://holidayfyi.com/oembed?url={page_url}&format=json`
+4. **Badge**: `https://holidayfyi.com/badge/site.svg`
 
 ## Links
 
 - Main site: https://holidayfyi.com
 - Widget docs: https://widget.holidayfyi.com
-- npm: https://www.npmjs.com/package/holidayfyi-embed
+- API documentation: https://holidayfyi.com/developers/
+- npm package: https://www.npmjs.com/package/holidayfyi-embed
 - GitHub: https://github.com/fyipedia/holidayfyi-embed
-- API: https://holidayfyi.com/developers/
 
-## Utility FYI Widget Family
+## Utility FYI Widget Network
 
 - [UnitFYI Widget](https://widget.unitfyi.com)
 - [TimeFYI Widget](https://widget.timefyi.com)
