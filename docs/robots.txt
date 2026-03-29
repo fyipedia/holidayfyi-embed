@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# HolidayFYI Embed Widget
+# Main site: https://holidayfyi.com
+# Widget docs: https://widget.holidayfyi.com
+# npm: https://www.npmjs.com/package/holidayfyi-embed
