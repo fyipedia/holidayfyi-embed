@@ -832,7 +832,7 @@ function renderError(container, message, config) {
   container.innerHTML = `
     <div class="utilityfyi-error">
       <p>${message}</p>
-      <a href="https://${config.domain}" target="_blank" rel="noopener">
+      <a href="https://${config.domain}" target="_blank" rel="nofollow noopener">
         Visit ${config.name}
       </a>
     </div>
@@ -840,7 +840,7 @@ function renderError(container, message, config) {
 }
 var externalLinkIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 function poweredByHTML(config) {
-  return `<span class="utilityfyi-powered">Powered by <a href="https://${config.domain}" target="_blank" rel="noopener">${config.name}</a></span>`;
+  return `<span class="utilityfyi-powered">Powered by <a href="https://${config.domain}" target="_blank" rel="nofollow noopener">${config.name}</a></span>`;
 }
 
 // src/api.ts
@@ -903,7 +903,7 @@ function badge(text, bg, fg = "#fff") {
   return `<span class="utilityfyi-badge" style="background:${bg};color:${fg}">${esc(text)}</span>`;
 }
 function viewLink(url, label, config) {
-  return `<div class="utilityfyi-view-link"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)} ${externalLinkIcon}</a></div>`;
+  return `<div class="utilityfyi-view-link"><a href="${esc(url)}" target="_blank" rel="nofollow noopener">${esc(label)} ${externalLinkIcon}</a></div>`;
 }
 function cardFooter(url, label, config) {
   return `${viewLink(url, label, config)}${poweredByHTML(config)}`;
@@ -919,7 +919,7 @@ function renderGlossaryCard(data, config) {
   const glossaryUrl = `https://${config.domain}/glossary/`;
   const relatedTerms = data.related_terms;
   const relatedPills = relatedTerms && relatedTerms.length > 0 ? `<div class="utilityfyi-pills">${relatedTerms.map(
-    (rt) => `<a class="utilityfyi-pill" href="https://${config.domain}/glossary/${esc(rt.slug)}/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">${esc(rt.name)}</a>`
+    (rt) => `<a class="utilityfyi-pill" href="https://${config.domain}/glossary/${esc(rt.slug)}/" target="_blank" rel="nofollow noopener" style="text-decoration:none;color:inherit;">${esc(rt.name)}</a>`
   ).join("")}</div>` : "";
   return `
     <div class="utilityfyi-header">
@@ -933,8 +933,8 @@ function renderGlossaryCard(data, config) {
     </div>
     ${extended ? `<div style="padding:0 18px 10px;font-size:0.85rem;color:var(--muted);line-height:1.5;">${esc(extended)}</div>` : ""}
     ${relatedPills}
-    <div class="utilityfyi-view-link"><a href="${termUrl}" target="_blank" rel="noopener">${esc(name)} ${externalLinkIcon}</a></div>
-    <div class="utilityfyi-view-link"><a href="${glossaryUrl}" target="_blank" rel="noopener">Full glossary on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${termUrl}" target="_blank" rel="nofollow noopener">${esc(name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${glossaryUrl}" target="_blank" rel="nofollow noopener">Full glossary on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1360,7 +1360,7 @@ function renderUnitCard(data, config) {
       ${kvRow("Category", categoryName)}
       ${conversionPreview ? kvRow("Conversion", conversionPreview) : ""}
     </div>
-    <div class="utilityfyi-view-link"><a href="${unitUrl}" target="_blank" rel="noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${unitUrl}" target="_blank" rel="nofollow noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1455,7 +1455,7 @@ function renderCityCard(data, config) {
       ${sunrise ? kvRow("Sunrise", sunrise) : ""}
       ${sunset ? kvRow("Sunset", sunset) : ""}
     </div>
-    <div class="utilityfyi-view-link"><a href="${cityUrl}" target="_blank" rel="noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${cityUrl}" target="_blank" rel="nofollow noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1543,7 +1543,7 @@ function renderHolidayCard(data, config) {
     </div>
     ${greetingHtml}
     ${colorSwatches}
-    <div class="utilityfyi-view-link"><a href="${holidayUrl}" target="_blank" rel="noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${holidayUrl}" target="_blank" rel="nofollow noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1589,7 +1589,7 @@ function renderNameCard(data, config) {
       ${popularity !== null && popularity !== void 0 ? kvRow("Popularity", String(popularity)) : ""}
       ${nativeScript ? kvRow("Native Script", nativeScript) : ""}
     </div>
-    <div class="utilityfyi-view-link"><a href="${nameUrl}" target="_blank" rel="noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${nameUrl}" target="_blank" rel="nofollow noopener">View on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1645,7 +1645,7 @@ function initEntityWidget(el, config) {
         html = `
             <div style="padding:16px;">
               <div style="font-size:1rem;font-weight:600;margin-bottom:8px;">${esc(name)}</div>
-              <a href="${esc(entityUrl)}" target="_blank" rel="noopener"
+              <a href="${esc(entityUrl)}" target="_blank" rel="nofollow noopener"
                  style="color:${config.accent};text-decoration:none;font-size:0.85rem;">
                 View on ${esc(config.name)} ${externalLinkIcon}
               </a>
@@ -1687,7 +1687,7 @@ function renderUnitCompare(dataA, dataB, config) {
       ${kvRow(nameA, symA)}
       ${kvRow(nameB, symB)}
     </div>
-    <div class="utilityfyi-view-link"><a href="${esc(compareUrl)}" target="_blank" rel="noopener">Compare on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${esc(compareUrl)}" target="_blank" rel="nofollow noopener">Compare on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1728,7 +1728,7 @@ function renderCityCompare(dataA, dataB, config) {
       ${kvRow(nameB, formatOffset(offsetB))}
       ${kvRow("Difference", diffLabel)}
     </div>
-    <div class="utilityfyi-view-link"><a href="${esc(compareUrl)}" target="_blank" rel="noopener">Compare on ${esc(config.name)} ${externalLinkIcon}</a></div>
+    <div class="utilityfyi-view-link"><a href="${esc(compareUrl)}" target="_blank" rel="nofollow noopener">Compare on ${esc(config.name)} ${externalLinkIcon}</a></div>
     ${poweredByHTML(config)}
   `;
 }
@@ -1954,7 +1954,7 @@ function initSearchWidget(el, config) {
       const href = item.url ? item.url.startsWith("http") ? item.url : `https://${config.domain}${item.url}` : `https://${config.domain}/${config.entitySlug}/${esc(item.slug)}/`;
       html += `
         <a class="utilityfyi-result-item"
-           href="${esc(href)}" target="_blank" rel="noopener" role="option" tabindex="-1"
+           href="${esc(href)}" target="_blank" rel="nofollow noopener" role="option" tabindex="-1"
            style="display:block;padding:8px 14px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--border);transition:background 0.1s;">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
             <span style="font-size:0.875rem;font-weight:500;">${esc(item.name)}</span>
@@ -2100,7 +2100,7 @@ function initTodayTool(el, config) {
       const typeColors = (_c = TYPE_COLORS2[type]) != null ? _c : { bg: "#F1F5F9", fg: "#374151" };
       const url = `https://${config.domain}/holiday/${esc(h.slug)}/`;
       return `
-          <a href="${url}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;padding:8px 18px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--border);transition:background 0.1s;">
+          <a href="${url}" target="_blank" rel="nofollow noopener" style="display:flex;align-items:center;gap:10px;padding:8px 18px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--border);transition:background 0.1s;">
             <span style="font-size:1.2rem;flex-shrink:0;">${emoji}</span>
             <div style="flex:1;min-width:0;">
               <div style="font-size:0.875rem;font-weight:500;">${esc(h.name)}</div>
@@ -2119,7 +2119,7 @@ function initTodayTool(el, config) {
           </div>
         </div>
         ${items}
-        <div class="utilityfyi-view-link"><a href="https://${config.domain}/today/" target="_blank" rel="noopener">All today's holidays ${externalLinkIcon}</a></div>
+        <div class="utilityfyi-view-link"><a href="https://${config.domain}/today/" target="_blank" rel="nofollow noopener">All today's holidays ${externalLinkIcon}</a></div>
         ${poweredByHTML(config)}
       `;
   }).catch(() => {
@@ -2156,7 +2156,7 @@ function initUpcomingTool(el, config) {
       const daysLabel = cd ? cd.isPast ? "Today" : `in ${cd.days} day${cd.days !== 1 ? "s" : ""}` : "";
       const url = `https://${config.domain}/holiday/${esc(h.slug)}/`;
       return `
-          <a href="${url}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;padding:8px 18px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--border);transition:background 0.1s;">
+          <a href="${url}" target="_blank" rel="nofollow noopener" style="display:flex;align-items:center;gap:10px;padding:8px 18px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--border);transition:background 0.1s;">
             <span style="font-size:1.2rem;flex-shrink:0;">${emoji}</span>
             <div style="flex:1;min-width:0;">
               <div style="font-size:0.875rem;font-weight:500;">${esc(h.name)}</div>
@@ -2174,7 +2174,7 @@ function initUpcomingTool(el, config) {
           </div>
         </div>
         ${items}
-        <div class="utilityfyi-view-link"><a href="https://${config.domain}/" target="_blank" rel="noopener">All holidays on ${esc(config.name)} ${externalLinkIcon}</a></div>
+        <div class="utilityfyi-view-link"><a href="https://${config.domain}/" target="_blank" rel="nofollow noopener">All holidays on ${esc(config.name)} ${externalLinkIcon}</a></div>
         ${poweredByHTML(config)}
       `;
   }).catch(() => {
